@@ -1,11 +1,16 @@
+# Flask and web server
 Flask==3.1.0
 gunicorn==23.0.0
-numpy==2.1.2
-pandas==2.2.3
-scikit-learn==1.6.1
-scipy==1.13.1
+
+# Data & ML
+numpy==2.1.2           
+pandas==2.3.3          
+scikit-learn==1.6.1    
+scipy==1.13.1           
 joblib==1.4.2
 threadpoolctl==3.5.0
+
+# Utilities
 python-dateutil==2.9.0.post0
 pytz==2024.1
 tzdata==2025.1
