@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+</head>
+<body>
+    <h2 style="text-align:center;">House Price Prediction</h2>
+
+    <form action="/predict" method="post" style="max-width:400px; margin:auto;">
+        <!-- Location Input -->
+        <label for="location">Location:</label><br>
+        <select id="location" name="location" required style="width:100%; padding:5px; margin-bottom:10px;">
+            <option value="">-- Select Location --</option>
+            {% for loc in locations %}
+                <option value="{{ loc }}">{{ loc }}</option>
+            {% endfor %}
+        </select><br>
+
+        <!-- BHK Input -->
+        <label for="bhk">BHK:</label><br>
+        <input type="number" id="bhk" name="bhk" placeholder="Enter number of bedrooms" required style="width:100%; padding:5px; margin-bottom:10px;"><br>
+
+        <!-- Bathrooms Input -->
+        <label for="bath">Number of Bathrooms:</label><br>
+        <input type="number" id="bath" name="bath" placeholder="Enter number of bathrooms" required style="width:100%; padding:5px; margin-bottom:10px;"><br>
+
+        <!-- Square Feet Input -->
+        <label for="sqft">Total Square Feet:</label><br>
+        <input type="number" id="sqft" name="sqft" placeholder="Enter area in square feet" required style="width:100%; padding:5px; margin-bottom:10px;"><br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Predict Price" style="width:100%; padding:10px;">
+    </form>
+
+    <!-- Prediction -->
+    {% if prediction_text %}
+    <p style="text-align:center; margin-top:20px; font-weight:bold;">
+        {{ prediction_text }}
+    </p>
+    {% endif %}
+</body>
+</html>
